@@ -1,0 +1,10 @@
+4 5
+Name Sex Age Grade
+Bob M 18 91
+Jan F 17 79
+Gus M 18 80
+Fern F 18 99
+Kat F 17 70
+2
+SELECT Name, Age WHERE Sex=F
+SELECT Name WHERE Grade>90
