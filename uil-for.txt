@@ -180,3 +180,34 @@ public static Integer[] toIntegerArr(int[] arr) {
     }
     return ret;
 }
+
+public static boolean ASCII_MAZE_SOLVE(int sx, int sy, int ex, int ey, char[][] maze, boolean[][] visited, boolean[][] correct, int energy) {
+    if (sx == ex && sy == ey && energy >= 0) return true;
+    if (maze[sx][sy] == 'X' || visited[sx][sy] || energy <= 0) return false;
+    visited[sx][sy] = true;
+
+    if (maze[sx][sy] == '.') energy--;
+    if (maze[sx][sy] == '*') energy-=5;
+    if (sx != 0)
+        if (ASCII_MAZE_SOLVE(sx - 1, sy, ex, ey, maze, visited, correct, energy)) {
+            correct[sx][sy] = true;
+            return true;
+        }
+    if (sx != maze[0].length - 1)
+        if (ASCII_MAZE_SOLVE(sx + 1, sy, ex, ey, maze, visited, correct, energy)) {
+            correct[sx][sy] = true;
+            return true;
+        }
+    if (sy != 0)
+        if (ASCII_MAZE_SOLVE(sx, sy - 1, ex, ey, maze, visited, correct, energy)) {
+            correct[sx][sy] = true;
+            return true;
+        }
+    if (sy != maze.length - 1) {
+        if (ASCII_MAZE_SOLVE(sx, sy + 1, ex, ey, maze, visited, correct, energy)) {
+            correct[sx][sy] = true;
+            return true;
+        }
+    }
+    return false;
+}
