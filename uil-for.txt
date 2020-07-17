@@ -1,0 +1,21 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+import java.util.*;
+import java.util.stream.*;
+import java.io.*;
+import java.lang.*;
+import java.text.*;
+
+public class ${NAME} {
+    public static void main(String[] args) throws IOException {
+        String fileName = "${NAME}".toLowerCase() + ".dat";
+        Scanner scan = new Scanner(new File(fileName));
+
+        int lines = scan.nextInt(); scan.nextLine();
+
+        for (int i = 0; i < lines; i++) {
+
+        }
+
+    }
+}
