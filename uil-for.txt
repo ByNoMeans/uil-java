@@ -115,6 +115,10 @@ public class ConvexHull {
     }
 }
 
+public static double distance(int x1, int x2, int y1, int y2) {
+     return Math.sqrt(Math.pow((y2 - y1), 2) + Math.pow(x2-x1, 2));
+}
+
 public static int mode(ArrayList<String> array) {
     HashMap<String,Integer> hm = new HashMap<String,Integer>();
     int max  = 1;
