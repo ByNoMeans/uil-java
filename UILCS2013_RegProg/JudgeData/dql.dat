@@ -1,0 +1,14 @@
+5 6
+ID Name Sex Age Grade
+1234 Bob M 18 91
+1344 Jan F 17 79
+1470 Gus M 18 80
+1784 Fern F 18 99
+5434 Kat F 17 70
+1410 Rex M 17 61
+5
+SELECT Name, Age WHERE Sex=F
+SELECT Name WHERE Grade>90
+SELECT *
+SELECT * WHERE Grade=69
+SELECT ID, Grade WHERE Grade<80
