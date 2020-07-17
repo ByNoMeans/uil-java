@@ -181,6 +181,34 @@ public static Integer[] toIntegerArr(int[] arr) {
     return ret;
 }
 
+public static void main(String[] args) throws Throwable {
+    Scanner scan = new Scanner(new File("blast.dat"));
+    //INCLUDE LENGTH AND HEIGHT AS INPUT PARAMS
+    int startR = 0; int startC = 0;int endR = 0; int endC = 0;
+    boolean[][] wasHere = new boolean[10][10];
+    boolean[][] correctPath = new boolean[10][10];
+    char[][] maze = new char[10][10];
+    for (int x = 0; x < 10; x++) {
+        char[] curr = scan.nextLine().toCharArray();
+        maze[x] = curr;
+        for (int i = 0; i < curr.length; i++) {
+            if (curr[i] == ('S')) {
+                startR = x;
+                startC = i;
+            } else if (curr[i] == ('E')) {
+                endR = x;
+                endC = i;
+            }
+        }
+    }
+
+    int energy = scan.nextInt();
+    if(ASCII_MAZE_SOLVE(startR, startC, endR, endC, maze, wasHere, correctPath, energy))
+        System.out.println("Escaped!");
+    else
+        System.out.println("Impossible!");
+}
+
 public static boolean ASCII_MAZE_SOLVE(int sx, int sy, int ex, int ey, char[][] maze, boolean[][] visited, boolean[][] correct, int energy) {
     if (sx == ex && sy == ey && energy >= 0) return true;
     if (maze[sx][sy] == 'X' || visited[sx][sy] || energy <= 0) return false;
