@@ -21,6 +21,31 @@ public class ${NAME} {
     }
 }
 
+private static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+public static String toInputBase(int inputNum, int base) {
+    String s = "";
+    while (inputNum > 0) {
+        s += SYMBOLS.charAt(inputNum % base);
+        inputNum /= base;
+    }
+    StringBuilder ix = new StringBuilder();
+    ix.append(s);
+    return new String(ix.reverse());
+}
+
+public static int hammingDistance(long n1, long n2) {
+        long l = Long.parseLong("" + BigInteger.valueOf(n1).xor(BigInteger.valueOf(n2)));
+        int setBits = 0;
+
+        while (l > 0) {
+            setBits += l & 1;
+            l >>= 1;
+        }
+
+        return setBits;
+    }
+
 class Point implements Comparable<Point> {
     int x, y;
 
