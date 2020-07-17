@@ -114,3 +114,28 @@ public class ConvexHull {
         return Math.sqrt(Math.pow((one.x - two.x), 2) + Math.pow((one.y - two.y), 2));
     }
 }
+
+public static int mode(ArrayList<String> array) {
+    HashMap<String,Integer> hm = new HashMap<String,Integer>();
+    int max  = 1;
+    String temp = "";
+
+    for(int i = 0; i < array.size(); i++) {
+
+        if (hm.get(array.get(i)) != null) {
+
+            int count = hm.get(array.get(i));
+            count++;
+            hm.put(array.get(i), count);
+
+            if(count > max) {
+                max  = count;
+                temp = array.get(i);
+            }
+        }
+
+        else
+            hm.put(array.get(i),1);
+    }
+    return Integer.parseInt(temp);
+}
