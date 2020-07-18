@@ -33,37 +33,35 @@ public static String toInputBase(int inputNum, int base) {
     return new String(ix.reverse());
 }
 
+public static double distance(int x1, int x2, int y1, int y2) {
+     return Math.sqrt(Math.pow((y2 - y1), 2) + Math.pow(x2-x1, 2));
+}
+
 public static int hammingDistance(long n1, long n2) {
-        long l = Long.parseLong("" + BigInteger.valueOf(n1).xor(BigInteger.valueOf(n2)));
-        int setBits = 0;
-
-        while (l > 0) {
-            setBits += l & 1;
-            l >>= 1;
-        }
-
-        return setBits;
+    long l = Long.parseLong("" + BigInteger.valueOf(n1).xor(BigInteger.valueOf(n2)));
+    int setBits = 0;
+    while (l > 0) {
+        setBits += l & 1;
+        l >>= 1;
     }
+    return setBits;
+}
 
 class Point implements Comparable<Point> {
     int x, y;
-
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
     public int compareTo(@NotNull Point p) {
         if (this.x == p.x)
             return this.y - p.y;
         else
             return this.x - p.x;
     }
-
 }
 
 public class ConvexHull {
-
     public static long cross(Point O, Point A, Point B) {
         return (A.x - O.x) * (long) (B.y - O.y) - (A.y - O.y) * (long) (B.x - O.x);
     }
@@ -95,7 +93,7 @@ public class ConvexHull {
     #    int size = scan.nextInt() + 1;
     #    Point[] p = new Point[size];
     #    for (int i = 0; i < p.length; i++)
-    #        p[i] = new Point(scan.nextInt(), scan.nextInt()) ;
+    #        p[i] = new Point(scan.nextInt(), scan.nextInt());
     #    Point[] hull = convex_hull(p).clone();
     #    ArrayList<Point> points = new ArrayList<>();
     #    for (Point point : hull)
@@ -114,43 +112,35 @@ public class ConvexHull {
     }
 }
 
-public static double distance(int x1, int x2, int y1, int y2) {
-     return Math.sqrt(Math.pow((y2 - y1), 2) + Math.pow(x2-x1, 2));
-}
+public class Statistics
+    public static int mode(ArrayList<String> array) {
+        HashMap<String,Integer> hm = new HashMap<String,Integer>();
+        int max  = 1;
+        String temp = "";
+        for (int i = 0; i < array.size(); i++) {
+            if (hm.get(array.get(i)) != null) {
+                int count = hm.get(array.get(i));
+                count++;
+                hm.put(array.get(i), count);
 
-public static int mode(ArrayList<String> array) {
-    HashMap<String,Integer> hm = new HashMap<String,Integer>();
-    int max  = 1;
-    String temp = "";
-
-    for(int i = 0; i < array.size(); i++) {
-
-        if (hm.get(array.get(i)) != null) {
-
-            int count = hm.get(array.get(i));
-            count++;
-            hm.put(array.get(i), count);
-
-            if(count > max) {
-                max  = count;
-                temp = array.get(i);
+                if(count > max) {
+                    max  = count;
+                    temp = array.get(i);
+                }
             }
+            else
+                hm.put(array.get(i),1);
         }
-
-        else
-            hm.put(array.get(i),1);
+        return Integer.parseInt(temp);
     }
-    return Integer.parseInt(temp);
 }
 
 public static long LCM(ArrayList<Integer> arr) {
     long lcm = 1;
     int divisor = 2;
-
     while (true) {
         int counter = 0;
         boolean divisible = false;
-
         for (int i = 0; i < arr.size(); i++) {
             if (arr.get(i) == 0)
                 return 0;
@@ -172,6 +162,8 @@ public static long LCM(ArrayList<Integer> arr) {
     }
 }
 
+# OTHER TO ARR METHODS
+
 public static Integer[] toIntegerArr(int[] arr) {
     Integer[] ret = new Integer[arr.length];
     for (int i = 0; i < arr.length; i++) {
@@ -180,73 +172,8 @@ public static Integer[] toIntegerArr(int[] arr) {
     return ret;
 }
 
-public static void main(String[] args) throws Throwable {
-    Scanner scan = new Scanner(new File("blast.dat"));
-    //INCLUDE LENGTH AND HEIGHT AS INPUT PARAMS
-    int startR = 0; int startC = 0;int endR = 0; int endC = 0;
-    boolean[][] wasHere = new boolean[10][10];
-    boolean[][] correctPath = new boolean[10][10];
-    char[][] maze = new char[10][10];
-    for (int x = 0; x < 10; x++) {
-        char[] curr = scan.nextLine().toCharArray();
-        maze[x] = curr;
-        for (int i = 0; i < curr.length; i++) {
-            if (curr[i] == ('S')) {
-                startR = x;
-                startC = i;
-            } else if (curr[i] == ('E')) {
-                endR = x;
-                endC = i;
-            }
-        }
-    }
-
-    int energy = scan.nextInt();
-    if(ASCII_MAZE_SOLVE(startR, startC, endR, endC, maze, wasHere, correctPath, energy))
-        System.out.println("Escaped!");
-    else
-        System.out.println("Impossible!");
-}
-
-public static boolean ASCII_MAZE_SOLVE(int sx, int sy, int ex, int ey, char[][] maze, boolean[][] visited, boolean[][] correct, int energy) {
-    if (sx == ex && sy == ey && energy >= 0) return true;
-    if (maze[sx][sy] == 'X' || visited[sx][sy] || energy <= 0) return false;
-    visited[sx][sy] = true;
-
-    if (maze[sx][sy] == '.') energy--;
-    if (maze[sx][sy] == '*') energy-=5;
-    if (sx != 0)
-        if (ASCII_MAZE_SOLVE(sx - 1, sy, ex, ey, maze, visited, correct, energy)) {
-            correct[sx][sy] = true;
-            return true;
-        }
-    if (sx != maze[0].length - 1)
-        if (ASCII_MAZE_SOLVE(sx + 1, sy, ex, ey, maze, visited, correct, energy)) {
-            correct[sx][sy] = true;
-            return true;
-        }
-    if (sy != 0)
-        if (ASCII_MAZE_SOLVE(sx, sy - 1, ex, ey, maze, visited, correct, energy)) {
-            correct[sx][sy] = true;
-            return true;
-        }
-    if (sy != maze.length - 1) {
-        if (ASCII_MAZE_SOLVE(sx, sy + 1, ex, ey, maze, visited, correct, energy)) {
-            correct[sx][sy] = true;
-            return true;
-        }
-    }
-    return false;
-}
-
 public class Dates {
-    public static void main(String[] args) throws IOException, ParseException {
-        String fileName = "Dates".toLowerCase() + ".dat";
-        Scanner scan = new Scanner(new File(fileName));
-
-        int lines = scan.nextInt();
-        scan.nextLine();
-
+    public static String DATE_MMDDYYY_FORMAT {
         for (int i = 0; i < lines; i++) {
             String date = scan.next();
             int daysAfter = scan.nextInt();
@@ -254,142 +181,88 @@ public class Dates {
             Calendar c = Calendar.getInstance();
             c.setTime(sdf.parse(date));
             c.add(Calendar.DAY_OF_MONTH, daysAfter);
-            String out = sdf.format(c.getTime()) ;
-            System.out.println(out);
+            String out = sdf.format(c.getTime());
         }
-
     }
 }
 
-public class Escape {
-    public static void main(String[] args) throws IOException {
-        String fileName = "Escape".toLowerCase() + ".dat";
-        Scanner scan = new Scanner(new File(fileName));
-
-        int lines = scan.nextInt();
-        scan.nextLine();
-
-        for (int i = 0; i < lines; i++) {
-            int row = scan.nextInt();
-            int col = scan.nextInt();
-            scan.nextLine();
-            boolean[][] wasHere = new boolean[row][col];
-            boolean[][] correctPath = new boolean[row][col];
-            char[][] maze = new char[row][col];
-            for (int x = 0; x < row; x++) {
-                char[] curr = scan.nextLine().toCharArray();
-                maze[x] = curr;
-            }
-//            for (char[] c : maze) {
-//                for (char z : c)
-//                    System.out.print(z);
-//                System.out.println();
-//            }
-            int ex = scan.nextInt();
-            int ey = scan.nextInt();
-            int sx = scan.nextInt();
-            int sy = scan.nextInt();
-            if (ASCII_MAZE_SOLVE(sx, sy, ex, ey, maze, wasHere, correctPath)) {
-                System.out.println("Escaped");
-            } else {
-                System.out.println("Trapped");
-            }
-
-        }
-
-    }
-    public static boolean ASCII_MAZE_SOLVE(int sx, int sy, int ex, int ey, char[][] maze, boolean[][] visited, boolean[][] correct) {
+public class ASCII_MAZE {
+    public static boolean ASCII_MAZE_BASIC(int sx, int sy, int ex, int ey, char[][] maze, boolean[][] visited, boolean[][] correct, char wall) {
         if (sx == ex && sy == ey ) return true;
-        if (maze[sx][sy] == '#' || visited[sx][sy]) return false;
+        if (maze[sx][sy] == wallChar || visited[sx][sy]) return false;
         visited[sx][sy] = true;
 
         if (sx != 0)
-            if (ASCII_MAZE_SOLVE(sx - 1, sy, ex, ey, maze, visited, correct)) {
+            if (ASCII_MAZE_BASIC(sx - 1, sy, ex, ey, maze, visited, correct, wall)) {
                 correct[sx][sy] = true;
                 return true;
             }
         if (sx != maze[0].length - 1)
-            if (ASCII_MAZE_SOLVE(sx + 1, sy, ex, ey, maze, visited, correct)) {
+            if (ASCII_MAZE_BASIC(sx + 1, sy, ex, ey, maze, visited, correct, wall)) {
                 correct[sx][sy] = true;
                 return true;
             }
         if (sy != 0)
-            if (ASCII_MAZE_SOLVE(sx, sy - 1, ex, ey, maze, visited, correct)) {
+            if (ASCII_MAZE_BASIC(sx, sy - 1, ex, ey, maze, visited, correct, wall)) {
                 correct[sx][sy] = true;
                 return true;
             }
         if (sy != maze.length - 1) {
-            if (ASCII_MAZE_SOLVE(sx, sy + 1, ex, ey, maze, visited, correct)) {
+            if (ASCII_MAZE_BASIC(sx, sy + 1, ex, ey, maze, visited, correct, wall)) {
                 correct[sx][sy] = true;
                 return true;
             }
         }
         return false;
     }
+    public static boolean ASCII_MAZE_ENERGY(int sx, int sy, int ex, int ey, char[][] maze, boolean[][] visited, boolean[][] correct, char wall, int energy) {
+        if (sx == ex && sy == ey && energy >= 0) return true;
+        if (maze[sx][sy] == wall || visited[sx][sy] || energy <= 0) return false;
+        visited[sx][sy] = true;
+        if (maze[sx][sy] == '.') energy--;
+        if (maze[sx][sy] == '*') energy-=5;
+        if (sx != 0)
+             if (ASCII_MAZE_ENERGY(sx - 1, sy, ex, ey, maze, visited, correct, wall, energy)) {
+                  correct[sx][sy] = true;
+                  return true;
+             }
+        if (sx != ASCII_MAZE_ENERGY[0].length - 1)
+             if (ASCII_MAZE_SOLVE(sx + 1, sy, ex, ey, maze, visited, correct, wall, energy)) {
+                  correct[sx][sy] = true;
+                  return true;
+             }
+        if (sy != 0)
+             if (ASCII_MAZE_ENERGY(sx, sy - 1, ex, ey, maze, visited, correct, wall, energy)) {
+                  correct[sx][sy] = true;
+                  return true;
+             }
+        if (sy != maze.length - 1) {
+              if (ASCII_MAZE_ENERGY(sx, sy + 1, ex, ey, maze, visited, correct, wall, energy)) {
+                  correct[sx][sy] = true;
+                  return true;
+              }
+        return false;
+    }
 }
 
 public class Flood_Fill {
-
-    // Recursive function to replace pCol at xCor, yCor with newCol
-    public static void helper(int[][] arr, int width, int height, int x, int y, int pCol, int newCol) {
-
-        // base case to stop out of bounds and infinite recursion
-        if (x < 0 || x >= width || y < 0 || y >= height) {
+    public static void helper(int[][] arr, int width, int height, int x, int y, int fCol, int newColor) {
+        if (x < 0 || x >= width || y < 0 || y >= height)
             return;
-        }
-
-        // you only want to replace the colors that are the same as the original, not different; then everything would
-        // be the same color; you return null because if you didn't, and just skip over the color, it would continue to
-        // call floodfill on surrounding cells
-
-        //below is the base case to stop infinite recursion (color you're on is not the color that should be replaced)
-        if (arr[x][y] != pCol) {
+        if (arr[x][y] != fCol)
             return;
-        }
-
         arr[x][y] = newCol;
-
-        helper(arr, width, height, x + 1, y, pCol, newCol);
-        helper(arr, width, height, x - 1, y, pCol, newCol);
-        helper(arr, width, height, x, y + 1, pCol, newCol);
-        helper(arr, width, height, x, y - 1, pCol, newCol);
-
+        helper(arr, width, height, x + 1, y, fCol, newColor);
+        helper(arr, width, height, x - 1, y, fCol, newColor);
+        helper(arr, width, height, x, y + 1, fCol, newColor);
+        helper(arr, width, height, x, y - 1, fCol, newColor);
     }
-
-    static void floodFill(int[][] arr, int width, int height, int x, int y, int newCol) {
-
+    public static void floodFill(int[][] arr, int width, int height, int x, int y, int newColor) {
         if (x < 0 || x >= width || y < 0 || y >= height) {
             System.out.println("Coordinates given not in array; returning unchanged array");
             return;
         }
-
         int pCol = arr[x][y];
-        helper(arr, x, y, width, height, pCol, newCol);
-
-    }
-
-    public static void main(String[] args) {
-        int width = 8; int height = 8;
-        int arr[][] =  {{1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 0, 0},
-                        {1, 0, 0, 1, 1, 0, 1, 1},
-                        {1, 2, 2, 2, 2, 0, 1, 0},
-                        {1, 1, 1, 2, 2, 0, 1, 0},
-                        {1, 1, 1, 2, 2, 2, 2, 0},
-                        {1, 1, 1, 1, 1, 2, 1, 1},
-                        {1, 1, 1, 1, 1, 2, 2, 1},
-        };
-
-        int x = 12, y = 4, newC = 3;
-        floodFill(arr, width, height, x, y, newC);
-
-        System.out.println("Updated screen after call to floodFillon point (" + x + ", " + y +  ") "
-         + "with color " + newC + ":");
-
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++)
-                System.out.print(arr[i][j] + " ");
-            System.out.println();
-        }
+        helper(arr, x, y, width, height, pCol, newColor);
     }
 }
