@@ -1,4 +1,5 @@
-practice-problems/*.iml
-practice-problems/.idea
 .idea/
 .DS_Store
+.DS_Store
+practice-problems/.idea
+practice-problems/*.iml
