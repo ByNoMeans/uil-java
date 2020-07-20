@@ -13,7 +13,6 @@ public class ${NAME} {
         Scanner scan = new Scanner(new File(fileName));
 
         int lines = scan.nextInt(); scan.nextLine();
-
         for (int i = 0; i < lines; i++) {
 
         }
