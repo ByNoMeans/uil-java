@@ -19,65 +19,13 @@
 │   └── topics.html
 ├── past-competitions
 │   ├── 2013-1
-│   │   ├── 2013-1.iml
-│   │   ├── SampleData
-│   │   │   ├── bears.dat
-│   │   │   ├── diceroll.dat
-│   │   │   ├── dryrun.dat
-│   │   │   ├── family.dat
-│   │   │   ├── friendly.dat
-│   │   │   ├── lawn.dat
-│   │   │   ├── local.dat
-│   │   │   ├── octopusses.dat
-│   │   │   ├── phonenumbers.dat
-│   │   │   ├── qualified.dat
-│   │   │   ├── squares.dat
-│   │   │   ├── whats.dat
-│   │   │   └── x3.dat
 │   │   ├── Solutions
-│   │   │   ├── Bears.java
-│   │   │   ├── DiceRoll.java
-│   │   │   ├── DryRun.java
-│   │   │   ├── Family.java
-│   │   │   ├── Friendly.java
-│   │   │   ├── Lawn.java
-│   │   │   ├── Local.java
-│   │   │   ├── Octopusses.java
-│   │   │   ├── PhoneNumbers.java
-│   │   │   ├── Qualified.java
-│   │   │   ├── Squares.java
-│   │   │   ├── Whats.java
-│   │   │   └── X3.java
 │   │   ├── UILCS_D12013_judgedata.pdf
 │   │   └── UILCS_D12013_probset.pdf
 │   ├── 2013-2
 │   │   ├── 2013-2.iml
 │   │   ├── SampleData
-│   │   │   ├── bestday.dat
-│   │   │   ├── bitpacking.dat
-│   │   │   ├── bouncing.dat
-│   │   │   ├── dql.dat
-│   │   │   ├── florist.dat
-│   │   │   ├── golfq.dat
-│   │   │   ├── maze3d.dat
-│   │   │   ├── moose.dat
-│   │   │   ├── multchoice.dat
-│   │   │   ├── pingpong.dat
-│   │   │   ├── thirteen.dat
-│   │   │   └── waitlist.dat
 │   │   ├── Solutions
-│   │   │   ├── BestDay.java
-│   │   │   ├── BitPacking.java
-│   │   │   ├── Bouncing.java
-│   │   │   ├── DQL.java
-│   │   │   ├── Florist.java
-│   │   │   ├── GolfQ.java
-│   │   │   ├── Maze3D.java
-│   │   │   ├── Moose.java
-│   │   │   ├── MultChoice.java
-│   │   │   ├── PingPong.java
-│   │   │   ├── Thirteen.java
-│   │   │   └── Waitlist.java
 │   │   ├── UILCS_Reg2013_judgedata.pdf
 │   │   └── UILCS_Reg2013_probset.pdf
 │   ├── 2018-district.pdf
@@ -86,14 +34,7 @@
 │   │   └── solutions.zip
 │   └── 2020-txcso.pdf
 ├── practice-problems
-│   └── uil-practice-problems.iml
 ├── reference
-│   ├── UILCS-BooleanIdentities.pdf
-│   ├── UILCS-DigitalSymbols.pdf
-│   ├── UILCS-JavaTopicList1920.pdf
-│   ├── UILCS-PolishNotation-Examples.pdf
-│   ├── UILCS_ClassReference_WrittenTest.pdf
-│   └── UILCS_Lambda_Expressions_Guide.pdf
 ├── structure.txt
 ├── uil-for.txt
 ├── uil-practice-problems
