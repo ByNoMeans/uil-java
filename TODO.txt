@@ -1,1 +1,2 @@
 Add convenience prompts
+learn stream
