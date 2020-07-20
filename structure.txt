@@ -1,65 +1,180 @@
-│   .gitignore
-│   DOTHIS.txt
-│   LICENSE
-│   README.md
-│   structure.txt
-│   uil-for.txt
-│   uil-while.txt
-│
-│
-├───notes
-│   │   currentdraft.html
-│   │   firstdraft.html
-│   │   old-draft-2.md.md
-│   │   topics.gdoc
-│   │   topics.html
-│   │
-│   └───images
-│           image1.png
-│           image2.png
-│           image3.png
-│           image4.png
-│
-├───past-competitions
-│   │   2018-district.pdf
-│   │   2020-txcso.pdf
-│   │
-│   ├───2013-1
-│   │   │   2013-1.iml
-│   │   │   UILCS_D12013_judgedata.pdf
-│   │   │   UILCS_D12013_probset.pdf
-│   │   │
-│   │   ├───JudgeData
-│   │   │
-│   │   ├───SampleData
-│   │   │
-│   │   └───Solutions
-│   │
-│   ├───2013-2
-│   │   │   2013-2.iml
-│   │   │   UILCS_Reg2013_judgedata.pdf
-│   │   │   UILCS_Reg2013_probset.pdf
-│   │   │
-│   │   ├───JudgeData
-│   │   │
-│   │   ├───SampleData
-│   │   │
-│   │   └───Solutions
-│   │
-│   └───2020-indeed
-│           problems.doc
-│           solutions.zip
-│
-├───practice-problems
-│       uil-practice-problems.iml
-│
-├───reference
-│       UILCS-BooleanIdentities.pdf
-│       UILCS-DigitalSymbols.pdf
-│       UILCS-JavaTopicList1920.pdf
-│       UILCS-PolishNotation-Examples.pdf
-│       UILCS_ClassReference_WrittenTest.pdf
-│       UILCS_Lambda_Expressions_Guide.pdf
-│
-└───written-test
+.
+├── DOTHIS.txt
+├── LICENSE
+├── README.md
+├── UIL
+│   └── Past_Comps
+│       └── Online\ Competition\ 2020
+├── methods.java
+├── notes
+│   ├── currentdraft.html
+│   ├── firstdraft.html
+│   ├── images
+│   │   ├── image1.png
+│   │   ├── image2.png
+│   │   ├── image3.png
+│   │   └── image4.png
+│   ├── old-draft-2.md.md
+│   ├── topics.gdoc
+│   └── topics.html
+├── past-competitions
+│   ├── 2013-1
+│   │   ├── 2013-1.iml
+│   │   ├── JudgeData
+│   │   │   ├── bears.dat
+│   │   │   ├── bears.out
+│   │   │   ├── diceroll.dat
+│   │   │   ├── diceroll.out
+│   │   │   ├── dryrun.dat
+│   │   │   ├── dryrun.out
+│   │   │   ├── family.dat
+│   │   │   ├── family.out
+│   │   │   ├── friendly.dat
+│   │   │   ├── friendly.out
+│   │   │   ├── lawn.dat
+│   │   │   ├── lawn.out
+│   │   │   ├── local.dat
+│   │   │   ├── local.out
+│   │   │   ├── octopusses.dat
+│   │   │   ├── octopusses.out
+│   │   │   ├── phonenumbers.dat
+│   │   │   ├── phonenumbers.out
+│   │   │   ├── qualified.dat
+│   │   │   ├── qualified.out
+│   │   │   ├── squares.dat
+│   │   │   ├── squares.out
+│   │   │   ├── whats.dat
+│   │   │   ├── whats.out
+│   │   │   ├── x3.dat
+│   │   │   └── x3.out
+│   │   ├── SampleData
+│   │   │   ├── bears.dat
+│   │   │   ├── bears.out
+│   │   │   ├── diceroll.dat
+│   │   │   ├── diceroll.out
+│   │   │   ├── dryrun.dat
+│   │   │   ├── dryrun.out
+│   │   │   ├── family.dat
+│   │   │   ├── family.out
+│   │   │   ├── friendly.dat
+│   │   │   ├── friendly.out
+│   │   │   ├── lawn.dat
+│   │   │   ├── lawn.out
+│   │   │   ├── local.dat
+│   │   │   ├── local.out
+│   │   │   ├── octopusses.dat
+│   │   │   ├── octopusses.out
+│   │   │   ├── phonenumbers.dat
+│   │   │   ├── phonenumbers.out
+│   │   │   ├── qualified.dat
+│   │   │   ├── qualified.out
+│   │   │   ├── squares.dat
+│   │   │   ├── squares.out
+│   │   │   ├── whats.dat
+│   │   │   ├── whats.out
+│   │   │   ├── x3.dat
+│   │   │   └── x3.out
+│   │   ├── Solutions
+│   │   │   ├── Bears.java
+│   │   │   ├── DiceRoll.java
+│   │   │   ├── DryRun.java
+│   │   │   ├── Family.java
+│   │   │   ├── Friendly.java
+│   │   │   ├── Lawn.java
+│   │   │   ├── Local.java
+│   │   │   ├── Octopusses.java
+│   │   │   ├── PhoneNumbers.java
+│   │   │   ├── Qualified.java
+│   │   │   ├── Squares.java
+│   │   │   ├── Whats.java
+│   │   │   └── X3.java
+│   │   ├── UILCS_D12013_judgedata.pdf
+│   │   └── UILCS_D12013_probset.pdf
+│   ├── 2013-2
+│   │   ├── 2013-2.iml
+│   │   ├── JudgeData
+│   │   │   ├── bestday.dat
+│   │   │   ├── bestday.out
+│   │   │   ├── bitpacking.dat
+│   │   │   ├── bitpacking.out
+│   │   │   ├── bouncing.dat
+│   │   │   ├── bouncing.out
+│   │   │   ├── dql.dat
+│   │   │   ├── dql.out
+│   │   │   ├── florist.dat
+│   │   │   ├── florist.out
+│   │   │   ├── golfq.dat
+│   │   │   ├── golfq.out
+│   │   │   ├── maze3d.dat
+│   │   │   ├── maze3d.out
+│   │   │   ├── moose.dat
+│   │   │   ├── moose.out
+│   │   │   ├── multchoice.dat
+│   │   │   ├── multchoice.out
+│   │   │   ├── pingpong.dat
+│   │   │   ├── pingpong.out
+│   │   │   ├── thirteen.dat
+│   │   │   ├── thirteen.out
+│   │   │   ├── waitlist.dat
+│   │   │   └── waitlist.out
+│   │   ├── SampleData
+│   │   │   ├── bestday.dat
+│   │   │   ├── bestday.out
+│   │   │   ├── bitpacking.dat
+│   │   │   ├── bitpacking.out
+│   │   │   ├── bouncing.dat
+│   │   │   ├── bouncing.out
+│   │   │   ├── dql.dat
+│   │   │   ├── dql.out
+│   │   │   ├── florist.dat
+│   │   │   ├── florist.out
+│   │   │   ├── golfq.dat
+│   │   │   ├── golfq.out
+│   │   │   ├── maze3d.dat
+│   │   │   ├── maze3d.out
+│   │   │   ├── moose.dat
+│   │   │   ├── moose.out
+│   │   │   ├── multchoice.dat
+│   │   │   ├── multchoice.out
+│   │   │   ├── pingpong.dat
+│   │   │   ├── pingpong.out
+│   │   │   ├── thirteen.dat
+│   │   │   ├── thirteen.out
+│   │   │   ├── waitlist.dat
+│   │   │   └── waitlist.out
+│   │   ├── Solutions
+│   │   │   ├── BestDay.java
+│   │   │   ├── BitPacking.java
+│   │   │   ├── Bouncing.java
+│   │   │   ├── DQL.java
+│   │   │   ├── Florist.java
+│   │   │   ├── GolfQ.java
+│   │   │   ├── Maze3D.java
+│   │   │   ├── Moose.java
+│   │   │   ├── MultChoice.java
+│   │   │   ├── PingPong.java
+│   │   │   ├── Thirteen.java
+│   │   │   └── Waitlist.java
+│   │   ├── UILCS_Reg2013_judgedata.pdf
+│   │   └── UILCS_Reg2013_probset.pdf
+│   ├── 2018-district.pdf
+│   ├── 2020-indeed
+│   │   ├── problems.doc
+│   │   └── solutions.zip
+│   └── 2020-txcso.pdf
+├── practice-problems
+│   └── uil-practice-problems.iml
+├── reference
+│   ├── UILCS-BooleanIdentities.pdf
+│   ├── UILCS-DigitalSymbols.pdf
+│   ├── UILCS-JavaTopicList1920.pdf
+│   ├── UILCS-PolishNotation-Examples.pdf
+│   ├── UILCS_ClassReference_WrittenTest.pdf
+│   └── UILCS_Lambda_Expressions_Guide.pdf
+├── structure.txt
+├── uil-for.txt
+├── uil-practice-problems
+│   └── src
+└── uil-while.txt
 
+19 directories, 158 files
