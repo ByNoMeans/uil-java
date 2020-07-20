@@ -20,60 +20,20 @@
 ├── past-competitions
 │   ├── 2013-1
 │   │   ├── 2013-1.iml
-│   │   ├── JudgeData
-│   │   │   ├── bears.dat
-│   │   │   ├── bears.out
-│   │   │   ├── diceroll.dat
-│   │   │   ├── diceroll.out
-│   │   │   ├── dryrun.dat
-│   │   │   ├── dryrun.out
-│   │   │   ├── family.dat
-│   │   │   ├── family.out
-│   │   │   ├── friendly.dat
-│   │   │   ├── friendly.out
-│   │   │   ├── lawn.dat
-│   │   │   ├── lawn.out
-│   │   │   ├── local.dat
-│   │   │   ├── local.out
-│   │   │   ├── octopusses.dat
-│   │   │   ├── octopusses.out
-│   │   │   ├── phonenumbers.dat
-│   │   │   ├── phonenumbers.out
-│   │   │   ├── qualified.dat
-│   │   │   ├── qualified.out
-│   │   │   ├── squares.dat
-│   │   │   ├── squares.out
-│   │   │   ├── whats.dat
-│   │   │   ├── whats.out
-│   │   │   ├── x3.dat
-│   │   │   └── x3.out
 │   │   ├── SampleData
 │   │   │   ├── bears.dat
-│   │   │   ├── bears.out
 │   │   │   ├── diceroll.dat
-│   │   │   ├── diceroll.out
 │   │   │   ├── dryrun.dat
-│   │   │   ├── dryrun.out
 │   │   │   ├── family.dat
-│   │   │   ├── family.out
 │   │   │   ├── friendly.dat
-│   │   │   ├── friendly.out
 │   │   │   ├── lawn.dat
-│   │   │   ├── lawn.out
 │   │   │   ├── local.dat
-│   │   │   ├── local.out
 │   │   │   ├── octopusses.dat
-│   │   │   ├── octopusses.out
 │   │   │   ├── phonenumbers.dat
-│   │   │   ├── phonenumbers.out
 │   │   │   ├── qualified.dat
-│   │   │   ├── qualified.out
 │   │   │   ├── squares.dat
-│   │   │   ├── squares.out
 │   │   │   ├── whats.dat
-│   │   │   ├── whats.out
-│   │   │   ├── x3.dat
-│   │   │   └── x3.out
+│   │   │   └── x3.dat
 │   │   ├── Solutions
 │   │   │   ├── Bears.java
 │   │   │   ├── DiceRoll.java
@@ -92,56 +52,19 @@
 │   │   └── UILCS_D12013_probset.pdf
 │   ├── 2013-2
 │   │   ├── 2013-2.iml
-│   │   ├── JudgeData
-│   │   │   ├── bestday.dat
-│   │   │   ├── bestday.out
-│   │   │   ├── bitpacking.dat
-│   │   │   ├── bitpacking.out
-│   │   │   ├── bouncing.dat
-│   │   │   ├── bouncing.out
-│   │   │   ├── dql.dat
-│   │   │   ├── dql.out
-│   │   │   ├── florist.dat
-│   │   │   ├── florist.out
-│   │   │   ├── golfq.dat
-│   │   │   ├── golfq.out
-│   │   │   ├── maze3d.dat
-│   │   │   ├── maze3d.out
-│   │   │   ├── moose.dat
-│   │   │   ├── moose.out
-│   │   │   ├── multchoice.dat
-│   │   │   ├── multchoice.out
-│   │   │   ├── pingpong.dat
-│   │   │   ├── pingpong.out
-│   │   │   ├── thirteen.dat
-│   │   │   ├── thirteen.out
-│   │   │   ├── waitlist.dat
-│   │   │   └── waitlist.out
 │   │   ├── SampleData
 │   │   │   ├── bestday.dat
-│   │   │   ├── bestday.out
 │   │   │   ├── bitpacking.dat
-│   │   │   ├── bitpacking.out
 │   │   │   ├── bouncing.dat
-│   │   │   ├── bouncing.out
 │   │   │   ├── dql.dat
-│   │   │   ├── dql.out
 │   │   │   ├── florist.dat
-│   │   │   ├── florist.out
 │   │   │   ├── golfq.dat
-│   │   │   ├── golfq.out
 │   │   │   ├── maze3d.dat
-│   │   │   ├── maze3d.out
 │   │   │   ├── moose.dat
-│   │   │   ├── moose.out
 │   │   │   ├── multchoice.dat
-│   │   │   ├── multchoice.out
 │   │   │   ├── pingpong.dat
-│   │   │   ├── pingpong.out
 │   │   │   ├── thirteen.dat
-│   │   │   ├── thirteen.out
-│   │   │   ├── waitlist.dat
-│   │   │   └── waitlist.out
+│   │   │   └── waitlist.dat
 │   │   ├── Solutions
 │   │   │   ├── BestDay.java
 │   │   │   ├── BitPacking.java
@@ -177,4 +100,4 @@
 │   └── src
 └── uil-while.txt
 
-19 directories, 158 files
+17 directories, 83 files
