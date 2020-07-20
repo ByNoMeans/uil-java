@@ -1,1 +1,0 @@
-classes are glitched apparently so only methods allowed; at the same time, we could all just have a copy of the repo and pull before the event,  nd have the file on hand; this might be better and more honest, but try both 

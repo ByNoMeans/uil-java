@@ -5,7 +5,7 @@ import java.io.*;
 import java.lang.*;
 
 public class methods {
-    private static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    public static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static String toInputBase(int inputNum, int base) {
         StringBuilder s = new StringBuilder();

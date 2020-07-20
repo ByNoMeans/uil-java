@@ -11,11 +11,7 @@ public class ${NAME} {
         Scanner scan = new Scanner(new File(fileName));
 
         while (scan.hasNext()) {
-            solve();
+
         }
-
-    }
-    static void solve() {
-
     }
 }
