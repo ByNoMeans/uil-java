@@ -1,3 +1,9 @@
+import org.jetbrains.annotations.*;
+import java.util.*;
+import java.util.stream.*;
+import java.io.*;
+import java.lang.*;
+
 public class methods {
     private static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
