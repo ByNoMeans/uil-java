@@ -15,7 +15,7 @@ public class ${NAME} {
         }
 
     }
-    void solve() {
+    static void solve() {
 
     }
 }
