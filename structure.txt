@@ -1,1 +1,65 @@
-cmd //c tree //F
+│   .gitignore
+│   DOTHIS.txt
+│   LICENSE
+│   README.md
+│   structure.txt
+│   uil-for.txt
+│   uil-while.txt
+│
+│
+├───notes
+│   │   currentdraft.html
+│   │   firstdraft.html
+│   │   old-draft-2.md.md
+│   │   topics.gdoc
+│   │   topics.html
+│   │
+│   └───images
+│           image1.png
+│           image2.png
+│           image3.png
+│           image4.png
+│
+├───past-competitions
+│   │   2018-district.pdf
+│   │   2020-txcso.pdf
+│   │
+│   ├───2013-1
+│   │   │   2013-1.iml
+│   │   │   UILCS_D12013_judgedata.pdf
+│   │   │   UILCS_D12013_probset.pdf
+│   │   │
+│   │   ├───JudgeData
+│   │   │
+│   │   ├───SampleData
+│   │   │
+│   │   └───Solutions
+│   │
+│   ├───2013-2
+│   │   │   2013-2.iml
+│   │   │   UILCS_Reg2013_judgedata.pdf
+│   │   │   UILCS_Reg2013_probset.pdf
+│   │   │
+│   │   ├───JudgeData
+│   │   │
+│   │   ├───SampleData
+│   │   │
+│   │   └───Solutions
+│   │
+│   └───2020-indeed
+│           problems.doc
+│           solutions.zip
+│
+├───practice-problems
+│       uil-practice-problems.iml
+│
+├───reference
+│       UILCS-BooleanIdentities.pdf
+│       UILCS-DigitalSymbols.pdf
+│       UILCS-JavaTopicList1920.pdf
+│       UILCS-PolishNotation-Examples.pdf
+│       UILCS_ClassReference_WrittenTest.pdf
+│       UILCS_Lambda_Expressions_Guide.pdf
+│
+└───written-test
+
