@@ -12,7 +12,7 @@ public class DiceRoll {
         for (int i = 0; i < cases; i++) {
             Random rand = new Random(scan.nextLong());
             int r = rand.ints(1, 1, 5).findFirst().getAsInt() % 2;
-            rand.ints(1, 123)
+            rand.ints(1, 123);
             int r2 = rand.ints(1, 1, 26).findFirst().getAsInt() % 4;
             if (r <= 2) {
                 String out = r2 == 0 ? "WHITE" : "RED";
