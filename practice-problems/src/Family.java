@@ -33,8 +33,8 @@ public class Family {
 
         List<Integer> values = new ArrayList<>();
         map.values().stream().distinct().forEach(values::add);
-
         Collections.sort(values);
+
         for (int v : values) {
             StringBuilder genString = new StringBuilder();
             List<String> kList = new ArrayList<>();
