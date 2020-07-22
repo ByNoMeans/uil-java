@@ -31,11 +31,11 @@ public class Family {
             }
         }
 
-        List<Integer> vals = new ArrayList<>();
-        map.values().stream().distinct().forEach(vals::add);
+        List<Integer> values = new ArrayList<>();
+        map.values().stream().distinct().forEach(values::add);
 
-        Collections.sort(vals);
-        for (int v : vals) {
+        Collections.sort(values);
+        for (int v : values) {
             StringBuilder genString = new StringBuilder();
             List<String> kList = new ArrayList<>();
             for (Map.Entry<String,Integer> e : map.entrySet()) {
