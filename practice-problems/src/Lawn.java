@@ -27,7 +27,7 @@ public class Lawn {
             for (int j = 0;  j< maze[0].length; j++) {
                 if (maze[i][j] == '*')
                     System.out.print('*');
-                else if (ASCII_MAZE_BASIC(i, j, 1, 1, maze, visited, correct))
+                else if (CAN_REACH_START)
                     System.out.print('B');
                 else
                     System.out.print('s');
