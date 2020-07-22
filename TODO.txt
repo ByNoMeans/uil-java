@@ -1,2 +1,2 @@
-Add convenience prompts
-learn stream
+more one-liner/important methods to speed up processes
+print 2D array method, print array method (package debug methods?)
