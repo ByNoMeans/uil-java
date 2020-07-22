@@ -8,20 +8,6 @@ public class Family {
         String barrettPath = "C:\\Users\\barre\\Github\\uil-java\\past-competitions\\2013-1\\SampleData\\family.dat";
         String sidPath = "/Users/sidbaskaran/Desktop/uil-java/past-competitions/2013-1/SampleData/family.dat";
         Scanner scan = new Scanner(new File(sidPath));
-        /*class Person {
-            int gen;
-            List<String> parent = new ArrayList<>();
-            List<String> sibling = new ArrayList<>();
-            List<String> children = new ArrayList<>();
-
-            public Person(int gen, String par, String sib, String chi) {
-                this.gen=gen;
-                parent.add(par);
-                sibling.add(sib);
-                children.add(chi);
-            }
-        }*/
-        //ArrayList<Person> p = new ArrayList<>();
 
         List<String> list = new ArrayList<>();
         while (scan.hasNextLine()) {list.add(scan.nextLine());}
@@ -50,15 +36,15 @@ public class Family {
 
         Collections.sort(vals);
         for (int v : vals) {
-            String genString = "";
+            StringBuilder genString = new StringBuilder();
             List<String> kList = new ArrayList<>();
             for (Map.Entry<String,Integer> e : map.entrySet()) {
                 if (e.getValue() == v)
                     kList.add(e.getKey());
             }
             Collections.sort(kList);
-            for (String s : kList) genString += s + " ";
-            System.out.printf("%d%s Generation: %s\n",v,v == 1 ? "st" : v == 2 ? "nd" : v == 3 ? "rd" : "th",genString.trim());
+            for (String s : kList) genString.append(s).append(" ");
+            System.out.printf("%d%s Generation: %s\n",v,v == 1 ? "st" : v == 2 ? "nd" : v == 3 ? "rd" : "th", genString.toString().trim());
         }
     }
 }
