@@ -23,11 +23,11 @@ public class Family {
                     if (list.get(j).contains(String.format("%s %s",r,s)))
                         count++;
                 }
-                map.putIfAbsent(s,count+1);
-                map.putIfAbsent(d,i==0 ? ++gen : gen++);
+                map.put(s,count+1);
+                map.put(d,i==0 ? ++gen : gen++);
             } else {
-                map.putIfAbsent(s,gen);
-                map.putIfAbsent(d,gen);
+                map.put(s,gen);
+                map.put(d,gen);
             }
         }
 
