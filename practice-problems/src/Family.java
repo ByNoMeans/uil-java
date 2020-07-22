@@ -38,10 +38,9 @@ public class Family {
         for (int v : values) {
             StringBuilder genString = new StringBuilder();
             List<String> kList = new ArrayList<>();
-            for (Map.Entry<String,Integer> e : map.entrySet()) {
-                if (e.getValue() == v)
-                    kList.add(e.getKey());
-            }
+            map.forEach( (k, va) -> {
+                if (va == v) kList.add(k);
+            });
             Collections.sort(kList);
             for (String s : kList) genString.append(s).append(" ");
             System.out.printf("%d%s Generation: %s\n",v,v == 1 ? "st" : v == 2 ? "nd" : v == 3 ? "rd" : "th", genString.toString().trim());
