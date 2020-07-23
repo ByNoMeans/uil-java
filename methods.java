@@ -73,13 +73,12 @@ public class methods {
 		    return -1; 
 		}
 		/*public static void main(String[] args)  
-		{ 
-		    int mat[][] = {{}}; 
-  
+		{
+            char[][] maze = new maze[length][width];
 		    BFSPoint source = new BFSPoint(startx, starty); 
 		    BFSPoint dest = new BFSPoint(endx, endy); 
   
-		    int dist = BFS(mat, source, dest); 
+		    int dist = BFS(maze, source, dest);
   
 		    if (dist != Integer.MAX_VALUE) 
 		        System.out.println("Shortest Path is " + dist); 
