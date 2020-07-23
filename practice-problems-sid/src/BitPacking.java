@@ -14,8 +14,14 @@ public class BitPacking {
 
         for (int i = 0; i < lines; i++) {
             String l = Integer.toBinaryString(Integer.parseInt(in.nextLine()));
-            int t = Integer.parseInt(l.substring(8,13),2)+65, st = Integer.parseInt(l.substring(13,19),2), iv = Integer.parseInt(l.substring(19),2);
-            char type = (char)t, subtype = (char) (st >= 1 && st <= 26 ? (char)65+st : st >= 27 && st <= 52 ? (char)97+st : (char)48+st);
+            int t = Integer.parseInt(l.substring(8,13),2)+65;
+            int st = Integer.parseInt(l.substring(13,19),2);
+            int iv = Integer.parseInt(l.substring(19),2);
+            char type = (char) t;
+            char subtype = (char) (st >= 1 && st <= 26 ? (char)65+st :
+                    st >= 27 && st <= 52 ? (char)97+st :
+                            (char)48+st);
+            System.out.printf("Binary: %s%n",l);
             System.out.printf("Type: %c | Sub Type: %c | Inventory: %d\n",type,subtype,iv);
         }
     }
