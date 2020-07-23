@@ -6,89 +6,87 @@ import java.lang.*;
 
 public class methods {
     public static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	
-	class ShortestPath { 
-		static int ROW = 9; 
-		static int COL = 10; 
-  
-		static class BFSPoint { 
-		    int x; 
-		    int y; 
-  
-		    public BFSPoint(int x, int y) 
-		    { 
-		        this.x = x; 
-		        this.y = y; 
-		    } 
-		}; 
-  
-		static class queueNode { 
-		    BFSPoint pt;  
-		    int dist; 
-  
-		    public queueNode(BFSPoint pt, int dist) 
-		    { 
-		        this.pt = pt; 
-		        this.dist = dist; 
-		    } 
-		}; 
 
-		static boolean isValid(int row, int col) { 
-		    return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL); 
-		} 
-		
-		static int rowNum[] = {-1, 0, 0, 1}; 
-		static int colNum[] = {0, -1, 1, 0}; 
-		
-		static int BFS(int mat[][], BFSPoint src, BFSPoint dest) { 
-		    if (mat[src.x][src.y] != 1 || mat[dest.x][dest.y] != 1) 
-		        return -1; 
-  
-		    boolean[][] visited = new boolean[ROW][COL]; 
-      
-		    visited[src.x][src.y] = true; 
+    static class ShortestPath {
+        static int ROW = 9;
+        static int COL = 10;
 
-		    Queue<queueNode> q = new LinkedList<>(); 
+        static class BFSPoint {
+            int x;
+            int y;
 
-		    queueNode s = new queueNode(src, 0); 
-		    q.add(s);
-		
-		    while (!q.isEmpty()) { 
-		        queueNode curr = q.peek(); 
-		        BFSPoint pt = curr.pt; 
-		        if (pt.x == dest.x && pt.y == dest.y) 
-		            return curr.dist; 
-		        q.remove(); 
-  
-		        for (int i = 0; i < 4; i++) { 
-		            int row = pt.x + rowNum[i]; 
-		            int col = pt.y + colNum[i]; 
-		            if (isValid(row, col) && mat[row][col] == 1 && !visited[row][col]) { 
-		                visited[row][col] = true; 
-		                queueNode Adjcell = new queueNode(new BFSPoint(row, col), curr.dist + 1 ); 
-		                q.add(Adjcell); 
-		            } 
-		        } 
-		    } 
-		    return -1; 
-		}
-		/*public static void main(String[] args)  
+            public BFSPoint(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        static class queueNode {
+            BFSPoint pt;
+            int dist;
+
+            public queueNode(BFSPoint pt, int dist)
+            {
+                this.pt = pt;
+                this.dist = dist;
+            }
+        }
+
+        static boolean isValid(int row, int col) {
+            return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL);
+        }
+
+        static int[] rowNum = {-1, 0, 0, 1};
+        static int[] colNum = {0, -1, 1, 0};
+
+        static int BFS(int[][] mat, BFSPoint src, BFSPoint dest) {
+            if (mat[src.x][src.y] != 1 || mat[dest.x][dest.y] != 1)
+                return -1;
+
+            boolean[][] visited = new boolean[ROW][COL];
+
+            visited[src.x][src.y] = true;
+
+            Queue<queueNode> q = new LinkedList<>();
+
+            queueNode s = new queueNode(src, 0);
+            q.add(s);
+
+            while (!q.isEmpty()) {
+                queueNode curr = q.peek();
+                BFSPoint pt = curr.pt;
+                if (pt.x == dest.x && pt.y == dest.y)
+                    return curr.dist;
+                q.remove();
+
+                for (int i = 0; i < 4; i++) {
+                    int row = pt.x + rowNum[i];
+                    int col = pt.y + colNum[i];
+                    if (isValid(row, col) && mat[row][col] == 1 && !visited[row][col]) {
+                        visited[row][col] = true;
+                        queueNode Adjcell = new queueNode(new BFSPoint(row, col), curr.dist + 1 );
+                        q.add(Adjcell);
+                    }
+                }
+            }
+            return -1;
+        }
+		/*public static void main(String[] args)
 		{
             char[][] maze = new maze[length][width];
-		    BFSPoint source = new BFSPoint(startx, starty); 
-		    BFSPoint dest = new BFSPoint(endx, endy); 
-  
+		    BFSPoint source = new BFSPoint(startx, starty);
+		    BFSPoint dest = new BFSPoint(endx, endy);
+
 		    int dist = BFS(maze, source, dest);
-  
-		    if (dist != Integer.MAX_VALUE) 
-		        System.out.println("Shortest Path is " + dist); 
+
+		    if (dist != Integer.MAX_VALUE)
+		        System.out.println("Shortest Path is " + dist);
 		    else
-		        System.out.println("Shortest Path doesn't exist"); 
+		        System.out.println("Shortest Path doesn't exist");
 		} */
-	 }
-	
-	
-	
+    }
+
     public static String toInputBase(int inputNum, int base) {
         StringBuilder s = new StringBuilder();
         while (inputNum > 0) {
@@ -120,11 +118,13 @@ public class methods {
             this.y = y;
         }
 
-        public int compareTo(@NotNull Point p) {
+        // Removed @NotNull annotation; found at package org.jetbrains.annotations
+        public int compareTo(Point p) {
             if (this.x == p.x)
                 return this.y - p.y;
             else
                 return this.x - p.x;
+
         }
     }
 
