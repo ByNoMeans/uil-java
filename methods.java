@@ -7,14 +7,11 @@ import java.lang.*;
 public class methods {
     public static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	
-	class ShortestPath 
-	{ 
+	class ShortestPath { 
 		static int ROW = 9; 
 		static int COL = 10; 
   
-		// To store matrix cell cordinates 
-		static class BFSPoint 
-		{ 
+		static class BFSPoint { 
 		    int x; 
 		    int y; 
   
@@ -25,11 +22,9 @@ public class methods {
 		    } 
 		}; 
   
-		// A Data Structure for queue used in BFS 
-		static class queueNode 
-		{ 
-		    BFSPoint pt; // The cordinates of a cell 
-		    int dist; // cell's distance of from the source 
+		static class queueNode { 
+		    BFSPoint pt;  
+		    int dist; 
   
 		    public queueNode(BFSPoint pt, int dist) 
 		    { 
@@ -37,34 +32,20 @@ public class methods {
 		        this.dist = dist; 
 		    } 
 		}; 
-  
-		// check whether given cell (row, col)  
-		// is a valid cell or not. 
-		static boolean isValid(int row, int col) 
-		{ 
-		    // return true if row number and  
-		    // column number is in range 
-		    return (row >= 0) && (row < ROW) && 
-		           (col >= 0) && (col < COL); 
+
+		static boolean isValid(int row, int col) { 
+		    return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL); 
 		} 
-  
-		// These arrays are used to get row and column 
-		// numbers of 4 neighbours of a given cell 
+		
 		static int rowNum[] = {-1, 0, 0, 1}; 
 		static int colNum[] = {0, -1, 1, 0}; 
-  
-		// function to find the shortest path between 
-		// a given source cell to a destination cell. 
-		static int BFS(int mat[][], BFSPoint src, 
-		                            BFSPoint dest) 
-		{ 
-		    if (mat[src.x][src.y] != 1 ||  
-		        mat[dest.x][dest.y] != 1) 
+		
+		static int BFS(int mat[][], BFSPoint src, BFSPoint dest) { 
+		    if (mat[src.x][src.y] != 1 || mat[dest.x][dest.y] != 1) 
 		        return -1; 
   
-		    boolean [][]visited = new boolean[ROW][COL]; 
+		    boolean[][] visited = new boolean[ROW][COL]; 
       
-		    // Mark the source cell as visited 
 		    visited[src.x][src.y] = true; 
 
 		    Queue<queueNode> q = new LinkedList<>(); 
@@ -72,31 +53,23 @@ public class methods {
 		    queueNode s = new queueNode(src, 0); 
 		    q.add(s);
 		
-		    while (!q.isEmpty()) 
-		    { 
+		    while (!q.isEmpty()) { 
 		        queueNode curr = q.peek(); 
 		        BFSPoint pt = curr.pt; 
 		        if (pt.x == dest.x && pt.y == dest.y) 
 		            return curr.dist; 
 		        q.remove(); 
   
-		        for (int i = 0; i < 4; i++) 
-		        { 
+		        for (int i = 0; i < 4; i++) { 
 		            int row = pt.x + rowNum[i]; 
 		            int col = pt.y + colNum[i]; 
-		            if (isValid(row, col) &&  
-		                    mat[row][col] == 1 &&  
-		                    !visited[row][col]) 
-		            { 
+		            if (isValid(row, col) && mat[row][col] == 1 && !visited[row][col]) { 
 		                visited[row][col] = true; 
-		                queueNode Adjcell = new queueNode(new BFSPoint(row, col), 
-		                                                      curr.dist + 1 ); 
+		                queueNode Adjcell = new queueNode(new BFSPoint(row, col), curr.dist + 1 ); 
 		                q.add(Adjcell); 
 		            } 
 		        } 
 		    } 
-  
-		    // Return -1 if destination cannot be reached 
 		    return -1; 
 		}
 		/*public static void main(String[] args)  
@@ -112,8 +85,8 @@ public class methods {
 		        System.out.println("Shortest Path is " + dist); 
 		    else
 		        System.out.println("Shortest Path doesn't exist"); 
-		} 
-	 }*/
+		} */
+	 }
 	
 	
 	
