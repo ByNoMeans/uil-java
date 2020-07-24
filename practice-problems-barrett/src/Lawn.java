@@ -17,11 +17,58 @@ public class Lawn {
 
         for (int i = 0; i < lines; i++) {
             char[][] maze = process2DASCII(scan, scan.nextInt(), scan.nextInt());
-            print2DArray(maze);
+
+            mow(maze, 0, 0);
+
+            for (char[] chars : maze) {
+                for (int k = 0; k < maze[0].length; k++) {
+                    if (chars[k] == '.')
+                        System.out.print('s');
+                    else
+                        System.out.print(chars[k]);
+                }
+                System.out.println();
+            }
+            System.out.println();
         }
 
 
     }
+
+    public static void mow(char[][] in, int row, int col) {
+        if (row < 0 || col < 0 || row + 3 > in.length || col + 3 > in[0].length)
+            return;
+
+        boolean newPlaceToMow = false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (in[row + i][col + j] == '*') {
+                    newPlaceToMow = false;
+                    break;
+                } else if (in[row + i][col + j] == '.')
+                    newPlaceToMow = true;
+            }
+        }
+
+        if (newPlaceToMow) {
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    in[row + i][col + j] = 'B';
+
+            mow(in, row - 1, col);
+            mow(in, row, col - 1);
+            mow(in, row + 1, col);
+            mow(in, row, col + 1);
+
+        }
+
+
+
+
+
+
+    }
+
     public static char[][] process2DASCII(Scanner scan, int length, int width) {
         scan.nextLine();
         char[][] out = new char[length][width];
