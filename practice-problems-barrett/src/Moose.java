@@ -21,18 +21,11 @@ public class Moose {
                     mooseMaze[j][k] = line.charAt(k);
             }
 
-            Arrays.stream(mooseMaze).forEach(e ->  {
-                System.out.println(Arrays.toString(e));
-            });
-
             int max = 0;
 
-            for (int j = 0; j < mooseMaze.length; j++) {
-                for (int k = 0; k < mooseMaze[0].length; k++) {
-                    max = mooseRecursion(mooseMaze, j, k);
-                }
-            }
-
+            for (int j = 0; j < mooseMaze.length; j++)
+                for (int k = 0; k < mooseMaze[0].length; k++)
+                    max = Math.max(max, mooseRecursion(mooseMaze, j, k));
             System.out.println(max);
 
         }
@@ -40,15 +33,13 @@ public class Moose {
     }
 
     private static int mooseRecursion(char[][] mooseMaze, int r, int c) {
-        if (r > 9 || r < 0 || c < 0 || c > 9)
+        if (r > 9 || r < 0 || c < 0 || c > 9 || mooseMaze[r][c] != 'M')
             return 0;
         mooseMaze[r][c] = ' ';
-        if (mooseMaze[r][c] != 'M')
-            return 0;
-        mooseMaze[r][c] = ' ';
-        int count = 1;
-        count += mooseRecursion(mooseMaze, r + 1, c) + mooseRecursion(mooseMaze, r, c + 1) + mooseRecursion(mooseMaze, r, c - 1) + mooseRecursion(mooseMaze, r - 1,c);
-        return count;
+        return 1 + mooseRecursion(mooseMaze, r - 1,c) +
+                   mooseRecursion(mooseMaze, r, c - 1) +
+                   mooseRecursion(mooseMaze, r + 1, c) +
+                   mooseRecursion(mooseMaze, r, c + 1);
     }
 }
 
