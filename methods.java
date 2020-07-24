@@ -346,4 +346,14 @@ public class methods {
             floodFillHelper(arr, x, y, width, height, pCol, newColor);
         }
     }
+
+    public static char[][] process2DCharArray(Scanner scan, int length, int width) {
+        char[][] out = new char[length][width];
+        for (int i = 0; i < length; i++) {
+            String line = scan.nextLine();
+            for (int j = 0; j < width; j++) 
+                out[i][j] = line.charAt(j);
+        }
+        return out;
+    }
 }

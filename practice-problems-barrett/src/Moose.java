@@ -14,12 +14,7 @@ public class Moose {
         scan.nextLine();
 
         for (int i = 0; i < lines; i++) {
-            char[][] mooseMaze = new char[10][10];
-            for (int j = 0; j < 10; j++) {
-                String line = scan.nextLine();
-                for (int k = 0; k < 10; k++)
-                    mooseMaze[j][k] = line.charAt(k);
-            }
+            char[][] mooseMaze = process2DCharArray(scan, 10, 10);
 
             int max = 0;
 
@@ -30,6 +25,16 @@ public class Moose {
 
         }
 
+    }
+
+    public static char[][] process2DCharArray(Scanner scan, int length, int width) {
+        char[][] out = new char[length][width];
+        for (int i = 0; i < length; i++) {
+            String line = scan.nextLine();
+            for (int j = 0; j < width; j++)
+                out[i][j] = line.charAt(j);
+        }
+        return out;
     }
 
     private static int mooseRecursion(char[][] mooseMaze, int r, int c) {
