@@ -1,9 +1,10 @@
-import java.math.*;
-import java.util.*;
-import java.util.stream.*;
-import java.io.*;
-import java.lang.*;
-import java.text.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class DQL {
     public static void main(String[] args) throws IOException {
@@ -34,7 +35,7 @@ public class DQL {
                 if (!query[1].equals(" ")) {
                     for (int n = 0; n < r; n++) {
                         for (int m = 0; m < hdr.size(); m++) {
-                            System.out.printf("%d %d%n",n,m);
+                            //System.out.printf("%d %d %s %s%n",m,n,query[1],val1);
                             out.add(findInDB(db,m,n,query[1],val1));
                         }
                     }
@@ -43,6 +44,7 @@ public class DQL {
                         out.add(findInDB(db,reqIdx,n,query[1],val1));
                     }
                 }
+                System.out.println(out);
                 printOutput(out);
             }
 
@@ -75,6 +77,7 @@ public class DQL {
         } catch (NumberFormatException ignored) {
             p = 0;
         }
+        //System.out.printf("reqidx: %d argidx: %d%n",reqIdx, argIdx);
         List<String> res = new ArrayList<>();
         if (where.contains("<")) {
             for (List<String> list : db) {
@@ -99,11 +102,13 @@ public class DQL {
         } else {
             if (p != 0) {
                 for (List<String> list : db) {
+                    //System.out.println(list);
                     if (Integer.parseInt(list.get(reqIdx)) == p)
                         res.add(list.get(argIdx));
                 }
             } else {
                 for (List<String> list : db) {
+                    //System.out.println(reqIdx);
                     if (list.get(reqIdx).equals(param))
                         res.add(list.get(argIdx));
                 }

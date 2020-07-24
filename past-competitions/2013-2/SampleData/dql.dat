@@ -6,5 +6,5 @@ Gus M 18 80
 Fern F 18 99
 Kat F 17 70
 2
-SELECT Name, Age WHERE Sex=F
+SELECT * WHERE Sex=F
 SELECT Name WHERE Grade>90
