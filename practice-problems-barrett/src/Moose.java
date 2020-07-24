@@ -14,7 +14,7 @@ public class Moose {
         scan.nextLine();
 
         for (int i = 0; i < lines; i++) {
-            char[][] mooseMaze = process2DCharArray(scan, 10, 10);
+            char[][] mooseMaze = process2DASCII(scan, 10, 10);
 
             int max = 0;
 
@@ -27,7 +27,7 @@ public class Moose {
 
     }
 
-    public static char[][] process2DCharArray(Scanner scan, int length, int width) {
+    public static char[][] process2DASCII(Scanner scan, int length, int width) {
         char[][] out = new char[length][width];
         for (int i = 0; i < length; i++) {
             String line = scan.nextLine();

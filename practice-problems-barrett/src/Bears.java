@@ -13,11 +13,7 @@ public class Bears {
         for (int i = 0; i < lines; i++) {
             int count = 0;
             for (int j = 0; j < 10; j++) {
-                String[] line = scan.nextLine().split("");
-                for (String s : line) {
-                    if (s.equals("B"))
-                        count++;
-                }
+                System.out.println(Stream.of(scan.nextLine().split("")).filter(e -> e.equals("B")).count());
             }
             System.out.println(count);
         }
