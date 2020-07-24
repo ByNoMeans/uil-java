@@ -21,7 +21,7 @@ public class ${NAME} {
         
     }
     
-    public static void print2DArray(char[][] in) {
+    public static void print2DCharArray(char[][] in) {
         IntStream.range(0, in.length).forEach(e -> System.out.println(Arrays.toString(in[e]).replaceAll("[\\s,\\[\\]]", "")));
     }
 
