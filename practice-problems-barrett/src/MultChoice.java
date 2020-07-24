@@ -34,9 +34,8 @@ public class MultChoice {
             }
 
             System.out.println("Question "+ ++i);
-            for (int j = 0; j < original.size(); j++) {
+            for (int j = 0; j < original.size(); j++)
                 System.out.println(original.get(j) + ((opt.get(j).get(0).equals("only")) ? " only" : ""));
-            }
         }
     }
 }

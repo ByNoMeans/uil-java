@@ -7,7 +7,6 @@ public class Squares {
     public static void main(String[] args) throws IOException {
         String fileName = "Squares".toLowerCase() + ".dat";
         Scanner scan = new Scanner(new File("C:\\Users\\barre\\Github\\uil-java\\past-competitions\\2013-1\\SampleData\\squares.dat"));
-
         while (scan.hasNext()) {
             int lines = scan.nextInt();
             for (int i = 0; i < lines; i++) {
