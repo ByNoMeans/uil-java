@@ -1,19 +1,16 @@
-#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
-#parse("File Header.java")
 import java.util.*;
 import java.util.stream.*;
 import java.io.*;
 import java.lang.*;
 
-public class ${NAME} {
+public class Help {
     public static void main(String[] args) throws IOException {
-        String fileName = "${NAME}".toLowerCase() + ".dat";
-	String barrettPath = "..\\past-competitions\\2013-1\\SampleData\\" + fileName;
-        String sidPath = "../past-competitions/2013-1/SampleData/" + fileName;        Scanner scan = new Scanner(new File(fileName));
-
-        while (scan.hasNext()) {
-        
-        }
+        System.out.println(" _   _  _____  _      _____");
+        System.out.println("| | | ||  ___|| |    | ___ \\");
+        System.out.println("| |_| || |__  | |    | |_/ /");
+        System.out.println("|  _  ||  __| | |    |  __/");
+        System.out.println("| | | || |___ | |____| |");
+        System.out.println("\\_| |_/\\____/ \\_____/\\_|");
 
     }
     
