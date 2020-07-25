@@ -23,7 +23,7 @@ public class Thirteen {
     }
 
     public static int solve(char[][] maze, int r, int c, int jewelCount) {
-        if (r < 0 || c < 0 || r >= maze.length || c >= maze[0].length || maze[r][c] == '#' || jewelCount > 13)
+        if (r < 0 || c < 0 || r >= maze.length || c >= maze[0].length || maze[r][c] == '#')
             return Integer.MAX_VALUE;
         if (maze[r][c] == 'E')
             return jewelCount == 13 ? 0 : Integer.MAX_VALUE;
@@ -31,12 +31,10 @@ public class Thirteen {
             jewelCount++;
 
         char curr = maze[r][c];
-
         maze[r][c] = '#';
 
         int depth = List.of
                 (
-                        Integer.MAX_VALUE,
                         solve(maze, r - 1, c, jewelCount),
                         solve(maze, r + 1, c, jewelCount),
                         solve(maze, r, c + 1, jewelCount),
