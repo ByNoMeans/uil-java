@@ -7,7 +7,7 @@ import java.text.*;
 
 public class Bears {
     public static void main(String[] args) throws IOException {
-        Scanner scan = new Scanner(new File("/Users/sidbaskaran/Desktop/uil-java/past-competitions/2013-1/SampleData/bears.dat"));
+        Scanner scan = new Scanner(new File("../past-competitions/2013-1/SampleData/bears.dat"));
         int lines = scan.nextInt();
         scan.nextLine();
         for (int i = 0; i < lines; i++) {

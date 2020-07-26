@@ -10,7 +10,7 @@ public class Lawn {
         String fileName = "Lawn".toLowerCase() + ".dat";
         String barrettPath = "..\\past-competitions\\2013-1\\SampleData\\" + fileName;
         String sidPath = "../past-competitions/2013-1/SampleData/" + fileName;
-        Scanner scan = new Scanner(new File(barrettPath));
+        Scanner scan = new Scanner(new File(sidPath));
 
         int lines = scan.nextInt();
         scan.nextLine();
@@ -22,17 +22,12 @@ public class Lawn {
 
             for (char[] chars : maze) {
                 for (int k = 0; k < maze[0].length; k++) {
-                    if (chars[k] == '.')
-                        System.out.print('s');
-                    else
-                        System.out.print(chars[k]);
+                    System.out.println(chars[k] == '.' ? 's' : chars[k]);
                 }
                 System.out.println();
             }
             System.out.println();
         }
-
-
     }
 
     public static void mow(char[][] in, int row, int col) {
@@ -80,6 +75,3 @@ public class Lawn {
     }
 
 }
-
-
-
