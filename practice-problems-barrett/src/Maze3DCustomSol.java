@@ -38,34 +38,41 @@ public class Maze3DCustomSol {
                 }
             }
             int end = solve(sR, sC, sF, 3, maze);
-            System.out.println(end==0?"STUCK": (end+" MOVES" ));
+            System.out.println(end == 0 ? "STUCK" : (end + " MOVES"));
         }
 
     }
 
     public static int solve(int sR, int sC, int sF, int shots, char[][][] maze) {
+        // Fail
         if (sR < 0 || sC < 0 || sF < 0 || sR > maze.length - 1 || sC > maze[0].length - 1 || sF > maze[0][0].length - 1 || maze[sR][sC][sF] == '#')
             return 0;
+        // Success
+        if (maze[sR][sC][sF] == 'E')
+            return 1;
         char current = maze[sR][sC][sF];
         int distance = 0;
-        if (maze[sR][sC][sF] != 'E') {
-            maze[sR][sC][sF] = '#';
-            if (current == '*') {
-                int bestPath;
-                if (shots > 0) {
-                    bestPath = solveHelper(sR, sC, sF, shots - 1, maze);
-                    distance += bestPath > 0 ? bestPath + 1 : 0;
-                }
-            } else if (current == '.') {
-                int bestPath = solveHelper(sR, sC, sF, shots, maze);
+        // Mark visited
+        maze[sR][sC][sF] = '#';
+        // Only increment distance by 1 if the bestPath is actually existing; else
+        // Don't increment, effectively returning 0 (failure), saying this current spot is as bad as
+        // being out of bonds/on an asteroid (like when you return 0 above)
+        if (current == '*') {
+            // Skips if no shots, effectively returning 0
+            if (shots > 0) {
+                int bestPath = solveHelper(sR, sC, sF, shots - 1, maze);
                 distance += bestPath > 0 ? bestPath + 1 : 0;
-            } else {
-                int bestPath = solveHelper(sR, sC, sF, shots, maze);
-                distance += Math.max(bestPath, 0);
             }
+        } else if (current == '.') {
+            int bestPath = solveHelper(sR, sC, sF, shots, maze);
+            distance += bestPath > 0 ? bestPath + 1 : 0;
         } else {
-            distance++;
+            // At start (don't increment the distance traveled; at the start
+            // you've travelled nowhere)
+            int bestPath = solveHelper(sR, sC, sF, shots, maze);
+            distance += Math.max(bestPath, 0);
         }
+        // Preserve maze 
         maze[sR][sC][sF] = current;
         return distance;
     }
@@ -81,19 +88,6 @@ public class Maze3DCustomSol {
         ).stream().filter(e -> e > 0).min(Integer::compare).orElse(0);
     }
 
-    public static void print2DCharArray(char[][] in) {
-        IntStream.range(0, in.length).forEach(e -> System.out.println(Arrays.toString(in[e]).replaceAll("[\\s,\\[\\]]", "")));
-    }
-
-    public static char[][] process2DASCII(Scanner scan, int length, int width) {
-        char[][] out = new char[length][width];
-        for (int i = 0; i < length; i++) {
-            String line = scan.nextLine();
-            for (int j = 0; j < width; j++)
-                out[i][j] = line.charAt(j);
-        }
-        return out;
-    }
 }
 
 
