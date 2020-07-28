@@ -44,22 +44,27 @@ public class Maze3DCustomSol {
     }
 
     public static int solve(int sR, int sC, int sF, int shots, char[][][] maze) {
-        if (sR < 0 || sC < 0 || sF < 0 || sR > maze.length - 1 || sC > maze[0].length - 1 || sF > maze[0][0].length - 1 || maze[sR][sC][sF] == '#' || (maze[sR][sC][sF] == '*' && shots < 1))
+        if (sR < 0 || sC < 0 || sF < 0 || sR > maze.length - 1 || sC > maze[0].length - 1 || sF > maze[0][0].length - 1 || maze[sR][sC][sF] == '#')
             return 0;
         char current = maze[sR][sC][sF];
         int distance = 0;
         if (maze[sR][sC][sF] != 'E') {
             maze[sR][sC][sF] = '#';
             if (current == '*') {
-                int bestPath = solveHelper(sR, sC, sF, shots - 1, maze);
-                distance += Math.max(bestPath, 1);
+                int bestPath;
+                if (shots > 0) {
+                    bestPath = solveHelper(sR, sC, sF, shots - 1, maze);
+                    distance += bestPath > 0 ? bestPath + 1 : 0;
+                }
             } else if (current == '.') {
                 int bestPath = solveHelper(sR, sC, sF, shots, maze);
-                distance += Math.max(bestPath, 1);
+                distance += bestPath > 0 ? bestPath + 1 : 0;
             } else {
                 int bestPath = solveHelper(sR, sC, sF, shots, maze);
                 distance += Math.max(bestPath, 0);
             }
+        } else {
+            distance++;
         }
         maze[sR][sC][sF] = current;
         return distance;
