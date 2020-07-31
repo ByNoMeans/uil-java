@@ -54,9 +54,8 @@ public class Maze3DCustomSol {
         int distance = 0;
         // Mark visited
         maze[sR][sC][sF] = '#';
-        // Only increment distance by 1 if the bestPath is actually existing; else
-        // Don't increment, effectively returning 0 (failure), saying this current spot is as bad as
-        // being out of bonds/on an asteroid (like when you return 0 above)
+        // Only increment distance by 1 + bestPath if the bestPath is actually existing; else
+        // Don't increment, effectively returning 0 (failure)
         if (current == '*') {
             // Skips if no shots, effectively returning 0
             if (shots > 0) {
@@ -72,7 +71,7 @@ public class Maze3DCustomSol {
             int bestPath = solveHelper(sR, sC, sF, shots, maze);
             distance += Math.max(bestPath, 0);
         }
-        // Preserve maze 
+        // Preserve maze
         maze[sR][sC][sF] = current;
         return distance;
     }
