@@ -1,0 +1,5 @@
+2
+t1 1 C t5 1 C t1 2 I t2 12 C t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 I t2 10 C t1 1 I t2 10 I t5 10 I t5 10 I t5 10 C
+
+west 1 C west 5 C west 12 C east 2 C east 3 C east 10 C north 3 I north 5 I north 12 I south 5 I north 12 I south 5 C south 5 C south 10 I
+
