@@ -6,14 +6,15 @@ import java.util.Scanner;
 
 public class Shared {
     public static void main(String[] args) throws IOException {
-        Scanner scan = new Scanner(new File("..\\past-competitions\\2010\\SampleData\\" + "shared.dat"));
-        int lines = scan.nextInt();
-        scan.nextLine();
-        for (int i = 0; i < lines; i++) {
-            LinkedHashMap<Integer, Point> r1 = generateRectangle(scan);
-            LinkedHashMap<Integer, Point> r2 = generateRectangle(scan);
-            System.out.println(generateArea(obtainPt(r1, r2), obtainPt(r2, r1)));
-        }
+//        Scanner scan = new Scanner(new File("..\\past-competitions\\2010\\SampleData\\" + "shared.dat"));
+//        int lines = scan.nextInt();
+//        scan.nextLine();
+//        for (int i = 0; i < lines; i++) {
+//            LinkedHashMap<Integer, Point> r1 = generateRectangle(scan);
+//            LinkedHashMap<Integer, Point> r2 = generateRectangle(scan);
+//            System.out.println(generateArea(obtainPt(r1, r2), obtainPt(r2, r1)));
+//        }
+
     }
 
     static LinkedHashMap<Integer, Point> generateRectangle(Scanner scan) {
