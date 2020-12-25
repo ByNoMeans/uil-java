@@ -9,9 +9,9 @@ import java.text.*;
 
 public class ${NAME} {
     public static void main(String[] args) throws IOException {
-	String fileName = "${NAME}".toLowerCase() + ".dat";
-        String barrettPath = "..\\past-competitions\\2013-1\\SampleData\\" + fileName;
-        String sidPath = "../past-competitions/2013-1/SampleData/" + fileName;
+	    String fileName = "${NAME}".toLowerCase() + ".dat";
+        String barrettPath = "..\\datadump\\ ${FOLDER} \\SampleData\\" + fileName;
+        String sidPath = "../datadump/${FOLDER}/SampleData/" + fileName;
         Scanner scan = new Scanner(new File(fileName));
 
         int lines = scan.nextInt(); scan.nextLine();
@@ -36,6 +36,3 @@ public class ${NAME} {
         return out;
     }
 }
-
-
-
