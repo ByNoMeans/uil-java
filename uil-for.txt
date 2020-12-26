@@ -10,9 +10,9 @@ import java.text.*;
 public class ${NAME} {
     public static void main(String[] args) throws IOException {
 	    String fileName = "${NAME}".toLowerCase() + ".dat";
-        String barrettPath = "..\\datadump\\ ${FOLDER} \\SampleData\\" + fileName;
-        String sidPath = "../datadump/${FOLDER}/SampleData/" + fileName;
-        Scanner scan = new Scanner(new File(fileName));
+        String barrettPath = ".\\datadump\\ ${FOLDER} \\SampleData\\" + fileName;
+        String sidPath = "./datadump/${FOLDER}/SampleData/" + fileName;
+        Scanner scan = new Scanner(new File(sidPath));
 
         int lines = scan.nextInt(); scan.nextLine();
 
