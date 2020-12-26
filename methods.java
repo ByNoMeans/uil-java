@@ -1,4 +1,6 @@
 import org.jetbrains.annotations.*;
+
+import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.*;
 import java.io.*;
@@ -8,9 +10,9 @@ public class methods {
     public static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static void print2DArray(Object[][] in) {
-        Stream.of(in.forEach(e -> {
-            System.out.println(Arrays.toString(e));
-        }));
+        Stream.of(in).forEach(e -> {
+            pl(Arrays.toString(e));
+        });
     }
 
     static class ShortestPath {

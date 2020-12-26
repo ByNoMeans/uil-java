@@ -8,7 +8,6 @@ import java.lang.*;
 import java.text.*;
 
 public class ${NAME} {
-
     static BufferedReader br;
     static StringTokenizer st;
 
@@ -25,8 +24,8 @@ public class ${NAME} {
         }
     }
     
-    public static void print2DCharArray(char[][] in) {
-        IntStream.range(0, in.length).forEach(e -> System.out.println(Arrays.toString(in[e]).replaceAll("[\\s,\\[\\]]", "")));
+    public static void p2D(Object[][] in) {
+        IntStream.range(0, in.length).forEach(e -> pl(in[e]).replaceAll("[\s,\[\]]", "")));
     }
 
     public static char[][] process2DASCII(BufferedReader br, int length, int width) {
@@ -65,10 +64,14 @@ public class ${NAME} {
         return next().charAt(0);
     }
 
-    public static <PrintableToString> void p(PrintableToString arg) {
-        System.out.print(arg);
+    public static <PrintableToString> void p(PrintableToString... args) {
+        for (PrintableToString arg : args)
+            System.out.print(arg);
     }
-    public static <PrintableToString> void pl(PrintableToString arg) {
-        System.out.println(arg);
+
+    public static <PrintableToString> void pl(PrintableToString... args) {
+        for (PrintableToString arg : args)
+            p(arg);
+        System.out.println();
     }
 }
