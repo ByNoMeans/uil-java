@@ -1,0 +1,74 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+import java.math.*;
+import java.util.*;
+import java.util.stream.*;
+import java.io.*;
+import java.lang.*;
+import java.text.*;
+
+public class ${NAME} {
+
+    static BufferedReader br;
+    static StringTokenizer st;
+
+    public static void main(String[] args) throws IOException {
+	    String fileName = "${NAME}".toLowerCase() + ".dat";
+        String path = "./datadump/${FOLDER}/SampleData/" + fileName;
+
+        br = new BufferedReader(new InputStreamReader(System.in));
+
+        int lines = br.rInt(); br.rLine();
+
+        for (int i = 0; i < lines; i++) {
+            
+        }
+    }
+    
+    public static void print2DCharArray(char[][] in) {
+        IntStream.range(0, in.length).forEach(e -> System.out.println(Arrays.toString(in[e]).replaceAll("[\\s,\\[\\]]", "")));
+    }
+
+    public static char[][] process2DASCII(BufferedReader br, int length, int width) {
+        char[][] out = new char[length][width];
+        for (int i = 0; i < length; i++) {
+            String line = br.rLine();
+            for (int j = 0; j < width; j++)
+                out[i][j] = line.charAt(j);
+        }
+        return out;
+    }
+
+    static String next() throws IOException {
+        while (st == null || !st.hasMoreTokens())
+          st = new StringTokenizer(br.readLine().trim());
+        return st.nextToken();
+    }
+
+    static String rLine() throws IOException {
+        return br.readLine().trim();
+    }
+    
+    static long rLong() throws IOException {
+        return Long.parseLong(next());
+    }
+
+    static int rInt() throws IOException {
+        return Integer.parseInt(next());
+    }
+
+    static double rDouble() throws IOException {
+        return Double.parseDouble(next());
+    }
+
+    static char rCharacter() throws IOException {
+        return next().charAt(0);
+    }
+
+    public static <PrintableToString> void p(PrintableToString arg) {
+        System.out.print(arg);
+    }
+    public static <PrintableToString> void pl(PrintableToString arg) {
+        System.out.println(arg);
+    }
+}
