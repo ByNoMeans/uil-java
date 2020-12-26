@@ -5,7 +5,7 @@ import java.io.*;
 import java.lang.*;
 import java.text.*;
 
-public class test11 {
+public class template {
     static BufferedReader br;
     static StringTokenizer st;
 
