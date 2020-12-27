@@ -8,71 +8,79 @@ import java.lang.*;
 import java.text.*;
 
 public class ${NAME} {
-    static BufferedReader br;
-    static StringTokenizer st;
+    public static BufferedReader br;
+    public static StringTokenizer st;
+    public static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static void main(String[] args) throws IOException {
-        String fileName = "${FILE}".toLowerCase() + ".dat";
+        String fileName = "${NAME}".toLowerCase() + ".dat";
         String path = "../datadump/${FOLDER}/SampleData/" + fileName;
         br = new BufferedReader(new FileReader(path));
-        int lines = rInt();
+        int cases = rI();
 
-        for (int i=0; i<lines; i++) {
+        for (int c=0; c<cases; c++) {
 
-            pl();
         }
 
         br.close();
     }
 
-    public static void p2D(Object[][] in) {
-        IntStream.range(0, in.length).forEach(e -> pl(in[e]).replaceAll("[\s,\[\]]", "")));
+    static String rA() throws IOException { return br.lines().collect(Collectors.joining()); }
+    static char rC() throws IOException { return rN().charAt(0); }
+    static double rD() throws IOException { return Double.parseDouble(rN()); }
+    static int rI() throws IOException { return Integer.parseInt(rN()); }
+    static String rL() throws IOException { return br.readLine().trim(); }
+    static Long rLo() throws IOException { return Long.parseLong(rN()); }
+    static String rN() throws IOException {
+        while (st == null || !st.hasMoreTokens()) st = new StringTokenizer(rL());
+        return st.nextToken();
+    }
+    public static char[][] r2D(int l, int w) throws IOException {
+        char[][] out = new char[l][w];
+        for (int i = 0; i < l; i++)
+            for (int j = 0; j < w; j++)
+                out[i][j] = rC();
+        return out;
     }
 
-    public static char[][] process2DASCII(BufferedReader br, int length, int width) {
-        char[][] out = new char[length][width];
-        for (int i = 0; i < length; i++) {
-            String line = br.rLine();
-            for (int j = 0; j < width; j++)
-                out[i][j] = line.charAt(j);
+    public static <T> void p(T args) { System.out.print(args); }
+    public static <T> void pl(T args) { System.out.println(args); }
+    public static void pl() { System.out.println(); }
+    public static void p2D(char[][] in) { Stream.of(in).forEach(e -> pl(AtoS(e))); }
+
+    public static Integer StoI(String in) { return Integer.parseInt(in); }
+    public static <T> String toS(T in) { return in.toString(); }
+    public static <T> String AtoS(T[] in) { return Arrays.toString(in); }
+
+    public static class Pt implements Comparable<Pt> {
+        public int x, y;
+        Pt() { x=y=0; }
+        Pt(int x, int y) { this.x=x; this.y=y; }
+        public int compareTo(Pt p) {
+            if (this.x == p.x) return this.y - p.y;
+            else return 0;
+        }
+    }
+
+    public static String frDeciTo(int base, int n) {
+        StringBuilder out = new StringBuilder(n == 0 ? "0" : "");
+        int mod;
+        while (n!=0) {
+            mod = n % base;
+            out.append(SYMBOLS.charAt(mod));
+            n /= base;
+        }
+        return out.reverse().toString();
+    }
+
+    public static long toDeciFr(int base, String n) {
+        long out = 0;
+        int position = n.length();
+        for (char ch : n.toCharArray())  {
+            int value = SYMBOLS.indexOf(ch);
+            out += value * Math.pow(base,--position);
         }
         return out;
     }
 
-    static String next() throws IOException {
-        while (st == null || !st.hasMoreTokens())
-          st = new StringTokenizer(br.readLine().trim());
-        return st.nextToken();
-    }
-
-    static String rLine() throws IOException {
-        return br.readLine().trim();
-    }
-
-    static long rLong() throws IOException {
-        return Long.parseLong(next());
-    }
-
-    static int rInt() throws IOException {
-        return Integer.parseInt(next());
-    }
-
-    static double rDouble() throws IOException {
-        return Double.parseDouble(next());
-    }
-
-    static char rCharacter() throws IOException {
-        return next().charAt(0);
-    }
-
-    public static <PrintableToString> void p(PrintableToString... args) {
-        for (PrintableToString arg : args)
-            System.out.print(arg);
-    }
-
-    public static <PrintableToString> void pl(PrintableToString... args) {
-        for (PrintableToString arg : args)
-            p(arg);
-        System.out.println();
-    }
 }
