@@ -8,9 +8,10 @@ import java.lang.*;
 import java.text.*;
 
 public class ${NAME} {
-    public static BufferedReader br;
-    public static StringTokenizer st;
-    public static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    static BufferedReader br;
+    static StringTokenizer st;
+    static final PrintWriter out = new PrintWriter(System.out);
+    static final String SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static void main(String[] args) throws IOException {
         String fileName = "${NAME}".toLowerCase() + ".dat";
@@ -18,11 +19,16 @@ public class ${NAME} {
         br = new BufferedReader(new FileReader(path));
         int cases = rI();
 
-        for (int c=0; c<cases; c++) {
-
+        for (int c=1; c<=cases; c++) {
+            new Solver();
         }
-
-        br.close();
+        br.close(); out.close();
+    }
+    
+    static class Solver() {
+        Solver() {
+        
+        }
     }
 
     static String rA() throws IOException { return br.lines().collect(Collectors.joining()); }
