@@ -25,7 +25,7 @@ public class ${NAME} {
         br.close(); out.close();
     }
     
-    static class Solver() {
+    static class Solver {
         Solver() {
         
         }
@@ -49,8 +49,6 @@ public class ${NAME} {
         return out;
     }
 
-    public static <T> void p(T args) { System.out.print(args); }
-    public static <T> void pl(T args) { System.out.println(args); }
     public static void pl() { System.out.println(); }
     public static void p2D(char[][] in) { Stream.of(in).forEach(e -> pl(AtoS(e))); }
 
@@ -88,5 +86,4 @@ public class ${NAME} {
         }
         return out;
     }
-
 }
