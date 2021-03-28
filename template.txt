@@ -1,4 +1,3 @@
-#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 #parse("File Header.java")
 import java.math.*;
 import java.util.*;
@@ -15,19 +14,25 @@ public class ${NAME} {
 
     public static void main(String[] args) throws IOException {
         String fileName = "${NAME}".toLowerCase() + ".dat";
-        String path = "../datadump/${FOLDER}/SampleData/" + fileName;
+        String path = "./datadump/${FOLDER}/SampleData/" + fileName;
         br = new BufferedReader(new FileReader(path));
         int cases = rI();
+        new preConditions();
 
-        for (int c=1; c<=cases; c++) {
-            new Solver();
-        }
-        br.close(); out.close();
+        for (int c=1; c<=cases; c++) { new Solver(c); }
+        br.close(); 
+        out.close();
     }
     
     static class Solver {
-        Solver() {
-        
+        Solver(int c) throws IOException {
+            
+        }
+    }
+    
+    static class preConditions {
+        preConditions() throws IOException {
+            
         }
     }
 
@@ -50,7 +55,8 @@ public class ${NAME} {
     }
 
     public static void pl() { System.out.println(); }
-    public static void p2D(char[][] in) { Stream.of(in).forEach(e -> pl(AtoS(e))); }
+    public static String AtoS(char[] in) { return Arrays.toString(in); }
+    public static void p2D(char[][] in) { Stream.of(in).forEach(e -> out.println(AtoS(e))); }
 
     public static Integer StoI(String in) { return Integer.parseInt(in); }
     public static <T> String toS(T in) { return in.toString(); }
@@ -64,6 +70,17 @@ public class ${NAME} {
             if (this.x == p.x) return this.y - p.y;
             else return 0;
         }
+    }
+    
+    public static class Pr<X, Y> {
+        public X x;
+        public Y y;
+        public Pr(X x, Y y) {
+            this.x = x;
+            this.y = y;
+        }
+        public X fst() { return x; }
+        public Y scd() { return y; }
     }
 
     public static String frDeciTo(int base, int n) {
